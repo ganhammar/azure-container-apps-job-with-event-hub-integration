@@ -1,0 +1,18 @@
+[project]
+name = "azure-container-apps-job-with-event-hub-integration"
+version = "0.0.1"
+readme = "README.md"
+
+requires-python = ">=3.9"
+dependencies = [
+  "azure-eventhub-checkpointstoreblob-aio~=1.2.0",
+  "azure-identity~=1.21.0"
+]
+
+[tool.poetry]
+packages = [
+  { include = "processor", from = "src" },
+]
+
+[project.scripts]
+processor = "processor.__main__:main"
