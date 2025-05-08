@@ -89,7 +89,6 @@ module eventHubAuthorizationRule './app/eventHubAuthorizationRule.bicep' = {
   name: 'eventHubAuthorizationRule'
   params: {
     eventHubNamespaceName: eventHub.outputs.eventHubNamespaceName
-    keyVaultName: keyVault.outputs.name
   }
 }
 

@@ -30,6 +30,7 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2024-01-01' existing =
 }
 
 var registry = 'ghcr.io'
+var username = 'ganhammar'
 resource processor 'Microsoft.App/jobs@2025-01-01' = {
   name: 'ca-processor-job'
   location: location
@@ -78,7 +79,7 @@ resource processor 'Microsoft.App/jobs@2025-01-01' = {
         {
           server: registry
           passwordSecretRef: 'container-registry-token'
-          username: '${containerRegistryNamespacePrefix}-token'
+          username: username
         }
       ]
     }
@@ -86,7 +87,7 @@ resource processor 'Microsoft.App/jobs@2025-01-01' = {
       containers: [
         {
           name: 'diagnostic-processor'
-          image: '${registry}/ganhammar/${containerRegistryNamespacePrefix}/processor:latest'
+          image: '${registry}/${username}/${containerRegistryNamespacePrefix}/processor:latest'
           resources: {
             cpu: json('0.5')
             memory: '1Gi'
