@@ -66,6 +66,7 @@ async def receive():
         receive_task = asyncio.create_task(
             client.receive(
                 on_event=on_event,
+                starting_position="-1",
             )
         )
 
