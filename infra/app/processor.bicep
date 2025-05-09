@@ -62,7 +62,7 @@ resource processor 'Microsoft.App/jobs@2025-01-01' = {
                 eventHubName: eventHubName
                 eventHubNamespace: eventHubNamespace.name
                 activationUnprocessedEventThreshold: 0
-                unprocessedEventThreshold: 64
+                unprocessedEventThreshold: 5
               }
             }
           ]
