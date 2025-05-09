@@ -116,4 +116,9 @@ module processor './app/processor.bicep' = {
     eventHubNamespaceName: eventHub.outputs.eventHubNamespaceName
     eventHubConsumerGroupName: eventHubConsumerGroup.outputs.name
   }
+  dependsOn: [
+    keyVaultAccess
+    storageAccountAccess
+    eventHubNamespaceAccess
+  ]
 }
