@@ -1,7 +1,7 @@
 param location string
 param projectName string
 
-var keyVaultName = take('kv${toLower(replace(projectName, '-', ''))}${uniqueString(resourceGroup().id)}', 24)
+var keyVaultName = '${take('kv${toLower(replace(projectName, '-', ''))}${uniqueString(resourceGroup().id)}', 23)}2'
 resource keyVault 'Microsoft.KeyVault/vaults@2024-11-01' = {
   name: keyVaultName
   location: location
