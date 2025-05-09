@@ -1,1 +1,5 @@
 # azure-container-apps-job-with-event-hub-integration
+
+This repository reproduces issue [#1479](https://github.com/microsoft/azure-container-apps/issues/1479) in [azure-container-apps](https://github.com/microsoft/azure-container-apps). As soon as a single message is put on the EventHub, the job gets triggered endlessly. The managed identity has the required permissions to [access secrets in the key vault](infra/app/keyVaultAccess.bicep), to [contribute to blob containers](infra/app/storageAccountAccess.bicep), and [data owner of the Event Hub namespace](infra/app/eventHubNamespaceAccess.bicep).
+
+As described in [this](https://github.com/microsoft/azure-container-apps/issues/1479#issuecomment-2864069015) comment, the checkpoint store is correctly written to and picked up by the job in succeeding runs.
