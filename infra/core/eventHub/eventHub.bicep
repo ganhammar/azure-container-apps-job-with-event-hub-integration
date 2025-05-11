@@ -3,7 +3,7 @@ param location string
 param projectName string
 
 resource eventHubNamespace 'Microsoft.EventHub/namespaces@2024-01-01' = {
-  name: 'eh-${projectName}'
+  name: 'eh-ns-${projectName}'
   location: location
   sku: {
     name: 'Standard'
@@ -18,7 +18,7 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2024-01-01' = {
 
 resource eventHub 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: eventHubNamespace
-  name: 'eh-ns-${projectName}'
+  name: 'eh-${projectName}'
   properties: {
     messageRetentionInDays: 7
     partitionCount: 1
