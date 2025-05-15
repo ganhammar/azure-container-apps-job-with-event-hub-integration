@@ -85,13 +85,6 @@ module eventHubConsumerGroup './app/eventHubConsumerGroup.bicep' = {
   }
 }
 
-module eventHubAuthorizationRule './app/eventHubAuthorizationRule.bicep' = {
-  name: 'eventHubAuthorizationRule'
-  params: {
-    eventHubNamespaceName: eventHub.outputs.eventHubNamespaceName
-  }
-}
-
 module containerAppEnvironment './core/host/containerAppEnvironment.bicep' = {
   name: 'containerAppEnvironment'
   params: {

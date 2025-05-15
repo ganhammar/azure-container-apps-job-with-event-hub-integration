@@ -57,12 +57,12 @@ resource processor 'Microsoft.App/jobs@2025-01-01' = {
               metadata: {
                 blobContainer: containerName
                 storageAccountName: storageAccount.name
-                checkPointStrategy: 'blobMetadata'
+                checkpointStrategy: 'blobMetadata'
                 consumerGroup: eventHubConsumerGroupName
                 eventHubName: eventHubName
                 eventHubNamespace: eventHubNamespace.name
-                activationUnprocessedEventThreshold: 0
-                unprocessedEventThreshold: 5
+                activationUnprocessedEventThreshold: '0'
+                unprocessedEventThreshold: '5'
               }
             }
           ]
